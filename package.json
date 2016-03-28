@@ -4,7 +4,7 @@
     "name": "TxHawks",
     "email": "tofu.hawks@gmail.com"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.scss",
   "files": [
     "scss"
@@ -45,7 +45,6 @@
     "babel-register": "^6.6.0",
     "browser-sync": "^2.11.1",
     "chai": "^3.5.0",
-    "eyeglass": "^0.8.3",
     "eyeglass": "^0.8.2",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.2.0",
