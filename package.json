@@ -35,11 +35,8 @@
     "prepublish": "gulp prepublish"
   },
   "dependencies": {
-    "eyeglass": "^0.8.3",
-    "gulp-sass": "^2.2.0",
     "jigsass-tools-maps": "^1.0.5",
-    "jigsass-tools-selectors": "^0.1.2",
-    "sassaby": "^2.1.1"
+    "jigsass-tools-selectors": "^0.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -48,7 +45,7 @@
     "babel-register": "^6.6.0",
     "browser-sync": "^2.11.1",
     "chai": "^3.5.0",
-    "del": "^2.2.0",
+    "eyeglass": "^0.8.3",
     "eyeglass": "^0.8.2",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.2.0",
@@ -57,8 +54,6 @@
     "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.2.0",
     "gulp-util": "^3.0.7",
-    "mdcss": "^1.5.1",
-    "mdcss-theme-jigsass": "^0.1.5",
     "postcss-reporter": "^1.3.3",
     "postcss-scss": "^0.1.5",
     "run-sequence": "^1.1.5",
