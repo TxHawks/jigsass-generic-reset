@@ -1,0 +1,176 @@
+// *************************************
+//
+// # jigsass-generic-reset
+// -> A minimal and considered CSS reset
+//
+// Author: TxHawks (tofu.hawks@gmail.com)
+//
+////
+/// @group Reset
+////
+//
+// *************************************
+
+@charset 'UTF-8';
+
+
+// -------------------------------------
+// Dependencies
+// -------------------------------------
+
+@if (not mixin-exists(jigsass-define-block)) {
+  @error '`jigsass-generic-reset` has a dependency on `jigsass-tools-selectors`. ' +
+    'Please import it.'
+}
+@if (not function-exists(jigsass-get)) {
+  @error '`jigsass-generic-reset` has a dependency on `jigsass-tools-maps`. ' +
+    'Please import it.'
+}
+
+
+
+
+
+// -------------------------------------
+// Variables
+// -------------------------------------
+
+$jigsass-border-box: false !default;
+
+
+
+
+
+// -------------------------------------
+// Definitions
+// -------------------------------------
+
+// For internal framework use. Never use directly.
+%_jigsass-box-sizing-reset-html-el {
+  box-sizing: border-box;
+}
+
+// For internal framework use. Never use directly.
+%_jigsass-box-sizing-reset-universal-el {
+  box-sizing: inherit;
+}
+
+// Reset default padding and margins
+@include jigsass-define-block(reset-box-model) {
+  body,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  dl,
+  dd,
+  ol,
+  ul,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  th,
+  td,
+  figure,
+  hr {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Reset default headline font-sizes
+@include jigsass-define-block(reset-headlines) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+  }
+}
+
+
+
+
+// -------------------------------------
+// Mixins
+// -------------------------------------
+
+/// Set the HTML elemnt's `box-sizing` to `border-box`
+/// and inherit in all child elements
+/// ---
+/// @link http://paulirish.com/2012/box-sizing-border-box-ftw
+/// @link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+/// ---
+@mixin jigsass-reset-box-sizing() {
+  $_was-included: if(
+    not global-variable-exists(_jigsass-selectors),
+    false,
+    jigsass-get($_jigsass-selectors, jigsass-reset-box-sizing) or false
+  );
+
+  // Notify other modules that the default `box-sizing` is `border-box`
+  $jigsass-border-box: true !global;
+
+  @if (not $_was-included) {
+    @if (not global-variable-exists(jigsass-silent) or not $jigsass-silent) {
+      html {
+        @extend %_jigsass-box-sizing-reset-html-el;
+      }
+
+      * {
+        @extend %_jigsass-box-sizing-reset-universal-el;
+      }
+
+      *:before {
+        @extend %_jigsass-box-sizing-reset-universal-el;
+      }
+
+      *:after {
+        @extend %_jigsass-box-sizing-reset-universal-el;
+      }
+    }
+
+    // Set class as defined in the `$_jigsass-selectors` map.
+    $_selector-map: (
+      jigsass-reset-box-sizing: if(
+        global-variable-exists(jigsass-silent) and $jigsass-silent,
+        silent,
+        true
+      )
+    );
+
+    @if (not global-variable-exists(_jigsass-selectors)) { $_jigsass-selectors: () !global; }
+    $_jigsass-selectors: jigsass-deep-merge($_jigsass-selectors, $_selector-map) !global;
+  }
+}
+
+/// Remove default margins padding-and borders from elements
+/// ---
+@mixin jigsass-reset-box-model() {
+  @include jigsass-block(reset-box-model);
+}
+
+/// Remove default headline styling
+/// ---
+@mixin jigsass-reset-headlines() {
+  @include jigsass-block(reset-headlines);
+}
+
+/// Include all resets
+/// ---
+@mixin jigsass-reset() {
+  @include jigsass-reset-box-sizing;
+  @include jigsass-block(reset-box-model);
+  @include jigsass-block(reset-headlines);
+}
