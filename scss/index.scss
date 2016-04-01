@@ -106,6 +106,40 @@ $jigsass-border-box: false !default;
     border-spacing: 0;
   }
 }
+/// Sane defaults for form elements
+@include jigsass-define-block(reset-forms) {
+  // Indicate clicability
+  label,
+  input,
+  button,
+  select,
+  option{
+    cursor: pointer;
+  }
+
+  // Indicate editablity
+  textarea:active,
+  textarea:focus,
+  input[type='email'],
+  input[type='email']:active,
+  input[type='password'],
+  input[type='password']:focus,
+  input[type='password']:active,
+  input[type='search'],
+  input[type='search']:focus,
+  input[type='search']:active,
+  input[type='text'],
+  input[type='text']:focus,
+  input[type='text']:active{
+    cursor: text;
+    outline: none;
+  }
+
+  // Remove letter-spacing normal in some browsers
+  button {
+    letter-spacing: inherit;
+  }
+}
 
 
 
@@ -184,6 +218,12 @@ $jigsass-border-box: false !default;
   @include jigsass-block(reset-tables);
 }
 
+/// Sane defaults for form elements
+/// ---
+@mixin jigsass-reset-forms() {
+  @include jigsass-block(reset-forms);
+}
+
 /// Include all resets
 /// ---
 @mixin jigsass-reset() {
@@ -191,4 +231,5 @@ $jigsass-border-box: false !default;
   @include jigsass-block(reset-box-model);
   @include jigsass-block(reset-headlines);
   @include jigsass-block(reset-tables);
+  @include jigsass-block(reset-forms);
 }
