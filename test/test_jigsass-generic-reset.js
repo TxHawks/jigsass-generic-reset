@@ -49,11 +49,19 @@ describe('jigsass-generic-reset', () => {
     });
   });
 
+  describe('jigsass-reset-tables [Mixin]', () => {
+    it('Creates expected styles', () => {
+      sassaby.standaloneMixin('jigsass-reset-tables')
+        .called()
+        .equals('* table{border-collapse: collapse; border-spacing: 0}');
+    });
+  });
+
   describe('jigsass-reset [Mixin]', () => {
     it('Creates expected styles', () => {
       sassaby.standaloneMixin('jigsass-reset')
         .called()
-        .equals('html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}* body,* iframe,* h1,* h2,* h3,* h4,* h5,* h6,* p,* blockquote,* pre,* dl,* dd,* ol,* ul,* fieldset,* form,* label,* legend,* table,* caption,* th,* td,* figure,* hr{margin:0;padding:0}* h1,* h2,* h3,* h4,* h5,* h6{font-size:100%}');
+        .equals('html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}* body,* iframe,* h1,* h2,* h3,* h4,* h5,* h6,* p,* blockquote,* pre,* dl,* dd,* ol,* ul,* fieldset,* form,* label,* legend,* table,* caption,* th,* td,* figure,* hr{margin:0;padding:0}* h1,* h2,* h3,* h4,* h5,* h6{font-size:100%}* table{border-collapse:collapse;border-spacing: 0}');
     });
   });
 });

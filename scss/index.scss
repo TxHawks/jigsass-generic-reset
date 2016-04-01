@@ -99,6 +99,14 @@ $jigsass-border-box: false !default;
   }
 }
 
+// A better starting point for tables
+@include jigsass-define-block(reset-tables) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}
+
 
 
 
@@ -108,6 +116,9 @@ $jigsass-border-box: false !default;
 
 /// Set the HTML elemnt's `box-sizing` to `border-box`
 /// and inherit in all child elements
+///
+/// Sets the global `$jigsass-border-box` variable to true, to let other modules
+/// know that global box-sizing has been set to `border-box`.
 /// ---
 /// @link http://paulirish.com/2012/box-sizing-border-box-ftw
 /// @link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
@@ -167,10 +178,17 @@ $jigsass-border-box: false !default;
   @include jigsass-block(reset-headlines);
 }
 
+/// Better starting point for tables
+/// ---
+@mixin jigsass-reset-tables() {
+  @include jigsass-block(reset-tables);
+}
+
 /// Include all resets
 /// ---
 @mixin jigsass-reset() {
   @include jigsass-reset-box-sizing;
   @include jigsass-block(reset-box-model);
   @include jigsass-block(reset-headlines);
+  @include jigsass-block(reset-tables);
 }
