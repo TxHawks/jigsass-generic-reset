@@ -20,11 +20,11 @@
 
 @if (not mixin-exists(jigsass-define-block)) {
   @error '`jigsass-generic-reset` has a dependency on `jigsass-tools-selectors`. ' +
-    'Please import it.'
+    'Please import it.';
 }
 @if (not function-exists(jigsass-get)) {
   @error '`jigsass-generic-reset` has a dependency on `jigsass-tools-maps`. ' +
-    'Please import it.'
+    'Please import it.';
 }
 
 

@@ -23,6 +23,12 @@ npm i -S jigsass-generic-reset
 Like all other JigSass modules, all css output is opt-in, and needs to be explicitly `@includ`ed. 
 Simply importing it will not affect your generated css.
 
+JigSass Reset offers mixins for including each of the reset submodules, and a shortcut mixin,
+`jigsass-reset`, to include all parts at once. 
+
+The styles of each JigSass Normalize submodule will only be included a single time, 
+where they were imported
+
 Please check the [documentation](https://txhawks.github.io/jigsass-generic-reset/) for more 
 details on the available mixins and their use.
 
