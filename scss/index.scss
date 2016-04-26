@@ -135,9 +135,18 @@ $jigsass-border-box: false !default;
     outline: none;
   }
 
-  // Remove letter-spacing normal in some browsers
-  button {
-    letter-spacing: inherit;
+  //
+  // 1. Remove buttons' default styling.
+  // 2. Remove letter-spacing normal in some browsers.
+  button,
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    background-color: transparent; // [1]
+    border: 0; // [1]
+    color: inherit; // [1]
+    letter-spacing: inherit; // [2]
+    padding: 0; // [1]
   }
 }
 

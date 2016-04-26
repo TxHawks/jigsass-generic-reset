@@ -61,7 +61,7 @@ describe('jigsass-generic-reset', () => {
     it('Creates expected styles', () => {
       sassaby.standaloneMixin('jigsass-reset-forms')
         .called()
-        .equals("* label,* input,* button,* select,* option{cursor:pointer}* textarea:active,* textarea:focus,* input[type='email'],* input[type='email']:active,* input[type='password'],* input[type='password']:focus,* input[type='password']:active,* input[type='search'],* input[type='search']:focus,* input[type='search']:active,* input[type='text'],* input[type='text']:focus,* input[type='text']:active{cursor:text;outline:0}* button{letter-spacing:inherit}");
+        .equals("* label,* input,* button,* select,* option{cursor:pointer}* textarea:active,* textarea:focus,* input[type='email'],* input[type='email']:active,* input[type='password'],* input[type='password']:focus,* input[type='password']:active,* input[type='search'],* input[type='search']:focus,* input[type='search']:active,* input[type='text'],* input[type='text']:focus,* input[type='text']:active{cursor:text;outline:0}* button,* input[type='button'],* input[type='reset'],* input[type='submit']{background-color:transparent;border:0;color:inherit;letter-spacing:inherit;padding:0}");
 
 
     });
@@ -71,7 +71,7 @@ describe('jigsass-generic-reset', () => {
     it('Creates expected styles', () => {
       sassaby.standaloneMixin('jigsass-reset')
         .called()
-        .equals("html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}* body,* iframe,* h1,* h2,* h3,* h4,* h5,* h6,* p,* blockquote,* pre,* dl,* dd,* ol,* ul,* fieldset,* form,* label,* legend,* table,* caption,* th,* td,* figure,* hr{margin:0;padding:0}* h1,* h2,* h3,* h4,* h5,* h6{font-size:100%}* table{border-collapse:collapse;border-spacing: 0}* label,* input,* button,* select,* option{cursor:pointer}* textarea:active,* textarea:focus,* input[type='email'],* input[type='email']:active,* input[type='password'],* input[type='password']:focus,* input[type='password']:active,* input[type='search'],* input[type='search']:focus,* input[type='search']:active,* input[type='text'],* input[type='text']:focus,* input[type='text']:active{cursor:text;outline:0}* button{letter-spacing:inherit}");
+        .equals("html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}* body,* iframe,* h1,* h2,* h3,* h4,* h5,* h6,* p,* blockquote,* pre,* dl,* dd,* ol,* ul,* fieldset,* form,* label,* legend,* table,* caption,* th,* td,* figure,* hr{margin:0;padding:0}* h1,* h2,* h3,* h4,* h5,* h6{font-size:100%}* table{border-collapse:collapse;border-spacing: 0}* label,* input,* button,* select,* option{cursor:pointer}* textarea:active,* textarea:focus,* input[type='email'],* input[type='email']:active,* input[type='password'],* input[type='password']:focus,* input[type='password']:active,* input[type='search'],* input[type='search']:focus,* input[type='search']:active,* input[type='text'],* input[type='text']:focus,* input[type='text']:active{cursor:text;outline:0}* button,* input[type='button'],* input[type='reset'],* input[type='submit']{background-color:transparent;border:0;color:inherit;letter-spacing:inherit;padding:0}");
     });
   });
 });
